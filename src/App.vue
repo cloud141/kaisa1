@@ -1,48 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import IoncsAndMore from '@/components/IoncsAndMore.vue';
+import Header from '@/components/Header.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-    <img src="./img/img.jpg" alt="">
+  <Header />
+  <IoncsAndMore name="kaisaR" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<style scoped lang="scss">
+.body_container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
+  .main_container {
+    flex: 1;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+    justify-content: space-around;
+    border: 1px solid blue;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    main {
+      max-width: min(1280px, calc(100% - 3rem));
+      flex: 1;
+      border: 1px solid blueviolet;
+    }
   }
 }
 </style>
