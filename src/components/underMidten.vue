@@ -1,51 +1,70 @@
 <script setup>
-import IoncsAndMore from './IoncsAndMore.vue';
+import { ref } from 'vue';
+
+const activeModal = ref(null);
+
+const openModal = (name) => {
+  activeModal.value = name;
+};
+
+const closeModal = () => {
+  activeModal.value = null;
+};
 </script>
 
 <template>
-    <div class="abilitiesContainer">
-      <!-- Kai'Sa tekst -->
-      <div class="headerText">
-        <p>who?</p>
-        <h2>Discover Kai'sa</h2>
-      </div>
-  
-      <!-- Abilities ikoner -->
-      <div class="abilitiesList">
-        <div class="ability">
-          <IoncsAndMore name="passiv" />
-          <p>Passiv</p>
-          <h3>Second Skin</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="KaisaQ" />
-          <p>Q</p>
-          <h3>Icathian Rain</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="KaisaW" />
-          <p>W</p>
-          <h3>Void Seeker</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="KaisaE" />
-          <p>E</p>
-          <h3>Supercharge</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="KaisaR" />
-          <p>R</p>
-          <h3>Killer Instinct</h3>
-        </div>
-      </div>
-
+  <div class="abilitiesContainer">
+    <div class="headerText">
+      <p>who?</p>
+      <h2>Discover Kai'sa</h2>
     </div>
 
-    <!-- Kode næste her -->
-  </template>
-  
+    <div class="abilitiesList">
+      <!-- Item 1 -->
+      <div class="ability" @click="openModal('fun')">
+        <img src="../img/kaisaFun1.png" alt="Fun fact kaisa" />
+        <div class="overlay">
+          <h3>Fun facts</h3>
+          <p>Kai'sa has family?</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="ability" @click="openModal('role')">
+        <img src="../img/kat1.png" alt="Role kaisa" />
+        <div class="overlay">
+          <h3>Role</h3>
+          <p>Marksman / Mage</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="ability" @click="openModal('lore')">
+        <img src="../img/kaisaLore.png" alt="Lore kaisa" />
+        <div class="overlay">
+          <h3>Lore</h3>
+          <p>Where is she from?</p>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Modal -->
+    <dialog v-if="activeModal" open class="kaisaDialog">
+      <div class="modalContent">
+        <p v-if="activeModal === 'fun'">Yes – Kassadin is her father 😱</p>
+        <p v-else-if="activeModal === 'role'">Kai'Sa is a hybrid marksman and mage.</p>
+        <p v-else-if="activeModal === 'lore'">She grew up in the Void after being trapped as a child.</p>
+
+        <button @click="closeModal">Close</button>
+      </div>
+    </dialog>
+  </div>
+</template>
 
 <style scoped lang="scss">
+
 .abilitiesContainer {
   display: flex;
   flex-direction: column;
@@ -73,35 +92,31 @@ import IoncsAndMore from './IoncsAndMore.vue';
 
 .abilitiesList {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: nowrap;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
 }
 
 .ability {
+  position: relative;
+  flex: 1 1 0%;
+  max-width: 600px; // eller den bredde du ønsker
+  height: 400px; 
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
- 
-  text-align: center;
-  color: $white;
+  flex-shrink: 0; // forhindrer flex i at squish'e dem
 
-  p {
-    margin: 0.3rem 0 0;
-    @include bodyText
-  }
-
-  h3 {
-    margin: 0;
-    @include bodyText2
-  }
-
-  svg {
-    max-width: 64px;
-    height: auto;
-    margin-bottom: 15px;
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
     transition: transform 0.5s ease, border 0.2s ease;
 
     &:hover {
@@ -109,6 +124,54 @@ import IoncsAndMore from './IoncsAndMore.vue';
         box-shadow: 0 0 40px $hoverColor;
         border-radius: 8px;
         cursor: pointer;
+    }
+}
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    color: $white;
+    background: none; // ← fjernet mørk baggrund
+
+    h3,
+    p {
+      margin: 0;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); // gør teksten læsbar uden mørk baggrund
+    }
+  }
+}
+
+
+.kaisaDialog {
+  padding: 2rem;
+  background: pink;
+  border: none;
+  border-radius: 1rem;
+  max-width: 400px;
+  margin: auto;
+  color: $white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    button {
+      align-self: flex-end;
+      padding: 0.5rem 1rem;
+      background: $purple;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 }
