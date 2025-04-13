@@ -1,18 +1,18 @@
 <script setup>
 import IoncsAndMore from '@/components/IoncsAndMore.vue';
+import underMidten from '@/components/underMidten.vue';
 import Header from '@/components/Header.vue';
-import Header1 from '@/components/Header1.vue';
-import Hero from '@/components/Hero.vue';
+import Midten from '@/components/Midten.vue';
 </script>
 
 <template>
 
-<div class="bodyContainer">
-  <Header />
+  <div class="bodyContainer">
+    <Header />
     <div class="mainContainer">
-      
       <main>
-
+        <Midten />
+        <underMidten />
       </main>
     </div>
   </div>
@@ -20,22 +20,6 @@ import Hero from '@/components/Hero.vue';
 </template>
 
 <style scoped lang="scss">
-.heroSection {
-  width: 100%;
-  min-height: 800px; 
-  background-image: url('@/img/bg1.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-
-  .overlayContent {
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
-  
-  }
-}
 .bodyContainer {
   min-height: 100vh;
   display: flex;
@@ -53,6 +37,12 @@ import Hero from '@/components/Hero.vue';
       max-width: min(1450px, calc(100% - 3rem));
       flex: 1;
       border: 1px solid blueviolet;
+      width: 100%;
+      background-image: url('@/img/storKaisa.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
     }
   }
 }

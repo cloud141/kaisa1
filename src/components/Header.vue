@@ -32,8 +32,7 @@ import Hero from '@/components/Hero.vue';
 <style scoped lang="scss">
 .heroSection {
   width: 100%;
-  min-height: 800px;
-  background-image: url('@/assets/img/bg1.jpg');
+  background-image: url('@/img/bg1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,7 +48,6 @@ import Hero from '@/components/Hero.vue';
 .mainContainer {
   max-width: 1450px;
   margin: 0 auto;
-  
   display: flex;
   flex-direction: column;
 }
@@ -82,6 +80,7 @@ import Hero from '@/components/Hero.vue';
   border: none;
   outline: none;
   @include bodyText;
+  font-style: italic;
   flex: 1;
   background: none;
   color: $white;
