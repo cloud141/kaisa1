@@ -1,10 +1,11 @@
 <script setup>
-import IoncsAndMore from './IoncsAndMore.vue';
+
 </script>
 
 <template>
 <div class="bg">
-    <img src="../img/b1.jpg" alt="">
+    
+    <h1>hell0</h1>
 </div>
 </template>
 

@@ -7,17 +7,36 @@ import Header1 from '@/components/Header1.vue';
 <template>
 
 <div class="bodyContainer">
+  <Header />
     <div class="mainContainer">
+      
       <main>
-        <Header />
+     
         <Header1 />
 
       </main>
     </div>
   </div>
+
 </template>
 
 <style scoped lang="scss">
+.heroSection {
+  width: 100%;
+  min-height: 800px; 
+  background-image: url('@/img/bg1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .overlayContent {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+  
+  }
+}
 .bodyContainer {
   min-height: 100vh;
   display: flex;

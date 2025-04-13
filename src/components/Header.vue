@@ -1,32 +1,65 @@
+<!-- Header.vue -->
 <script setup>
-import IoncsAndMore from './IoncsAndMore.vue';
+import IoncsAndMore from '@/components/IoncsAndMore.vue';
+import Header1 from '@/components/Header1.vue';
 </script>
 
 <template>
-    <div class="container">
-      <IoncsAndMore name="lolLogo" />
-  
-      <div class="center">
-        <div class="searchWrapper">
-          <IoncsAndMore name="search" class="search-icon" />
-          <input type="text" placeholder="Søg" class="searchInput" />
+  <div class="heroSection">
+    <div class="overlayContent">
+      <div class="mainContainer">
+        <div class="container">
+          <IoncsAndMore name="lolLogo" />
+
+          <div class="center">
+            <div class="searchWrapper">
+              <IoncsAndMore name="search" class="search-icon" />
+              <input type="text" placeholder="Søg" class="searchInput" />
+            </div>
+          </div>
+
+          <div class="icons">
+            <IoncsAndMore name="nofi" />
+            <IoncsAndMore name="settings" />
+          </div>
         </div>
-      </div>
-  
-      <div class="icons">
-        <IoncsAndMore name="nofi" />
-        <IoncsAndMore name="settings" />
+
+        <Header1 />
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <style scoped lang="scss">
-.container {
+.heroSection {
+  width: 100%;
+  min-height: 800px;
+  background-image: url('@/assets/img/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .overlayContent {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+  }
+}
+
+.mainContainer {
+  max-width: 1450px;
   margin: 0 auto;
-  padding: 1rem;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
 .center {
@@ -69,5 +102,4 @@ import IoncsAndMore from './IoncsAndMore.vue';
   display: flex;
   gap: 10px;
 }
-
 </style>
