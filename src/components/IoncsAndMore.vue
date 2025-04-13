@@ -31,13 +31,10 @@ const filePath = computed(() => {
 
 <style scoped lang="scss">
 
-$background: pink;
-$black: black;
 
 svg {
   display: inline-block;
   stroke-width: 2;
-  color: $black;
   &.selected{
     stroke-width: 2.5;
   }
@@ -46,8 +43,8 @@ svg {
     height: 16px;
   }
   &.large{
-    width: 38px;
-    height: 38px;
+    width: 25px;
+    height: 25px;
   }
   &.huge{
     width:80px;

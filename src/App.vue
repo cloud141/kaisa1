@@ -1,29 +1,38 @@
 <script setup>
 import IoncsAndMore from '@/components/IoncsAndMore.vue';
 import Header from '@/components/Header.vue';
+import Header1 from '@/components/Header1.vue';
 </script>
 
 <template>
-  <Header />
-  <IoncsAndMore name="kaisaR" />
 
+<div class="bodyContainer">
+    <div class="mainContainer">
+      <main>
+        <Header />
+        <Header1 />
+
+      </main>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.body_container {
+.bodyContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   border: 1px solid red;
+  background: $veryDarkPurple;
 
-  .main_container {
+  .mainContainer {
     flex: 1;
     display: flex;
     justify-content: space-around;
     border: 1px solid blue;
 
     main {
-      max-width: min(1280px, calc(100% - 3rem));
+      max-width: min(1450px, calc(100% - 3rem));
       flex: 1;
       border: 1px solid blueviolet;
     }
