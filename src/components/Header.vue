@@ -1,7 +1,7 @@
 <!-- Header.vue -->
 <script setup>
 import IoncsAndMore from '@/components/IoncsAndMore.vue';
-import Header1 from '@/components/Header1.vue';
+import Hero from '@/components/Hero.vue';
 </script>
 
 <template>
@@ -14,7 +14,7 @@ import Header1 from '@/components/Header1.vue';
           <div class="center">
             <div class="searchWrapper">
               <IoncsAndMore name="search" class="search-icon" />
-              <input type="text" placeholder="Søg" class="searchInput" />
+              <input type="text" placeholder="Search..." class="searchInput" />
             </div>
           </div>
 
@@ -23,8 +23,7 @@ import Header1 from '@/components/Header1.vue';
             <IoncsAndMore name="settings" />
           </div>
         </div>
-
-        <Header1 />
+        <Hero />
       </div>
     </div>
   </div>
@@ -50,7 +49,7 @@ import Header1 from '@/components/Header1.vue';
 .mainContainer {
   max-width: 1450px;
   margin: 0 auto;
-  border: 1px solid blue;
+  
   display: flex;
   flex-direction: column;
 }
@@ -75,14 +74,14 @@ import Header1 from '@/components/Header1.vue';
   border-radius: 2rem;
   padding: 0.5rem 1.5rem;
   background: none;
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
 }
 
 .searchInput {
   border: none;
   outline: none;
-  font-style: italic;
+  @include bodyText;
   flex: 1;
   background: none;
   color: $white;

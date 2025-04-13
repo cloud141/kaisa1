@@ -1,7 +1,3 @@
-$background: pink;
-$black: black;
-$white: pink;
-
 $purple: #5B299D;
 $black: #000;
 $darkPurple: #1C1422;
@@ -9,4 +5,20 @@ $veryDarkPurple: #110C15;
 $white: #fff;
 $yellow: #FFBE66;
 $hoverColor: #8444DA;
+
+@mixin heading1 {
+    font-family: "Poppins";
+    font-size: 28rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  @mixin bodyText {
+    font-size: 1rem;
+    font-family: "Poppins";
+    font-weight: 400;
+    line-height: 150%;
+    font-style: italic;
+  }
+
 

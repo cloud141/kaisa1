@@ -2,6 +2,7 @@
 import IoncsAndMore from '@/components/IoncsAndMore.vue';
 import Header from '@/components/Header.vue';
 import Header1 from '@/components/Header1.vue';
+import Hero from '@/components/Hero.vue';
 </script>
 
 <template>
@@ -11,8 +12,6 @@ import Header1 from '@/components/Header1.vue';
     <div class="mainContainer">
       
       <main>
-     
-        <Header1 />
 
       </main>
     </div>
