@@ -6,7 +6,6 @@ import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-
   <div class="bodyContainer">
     <Header />
     <div class="mainContainer">
@@ -21,16 +20,19 @@ import Footer from '@/components/Footer.vue';
 </template>
 
 <style scoped lang="scss">
+body {
+  overflow-x: hidden;
+}
 .bodyContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: $veryDarkPurple;
   background-image: url('@/img/storKaisa.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 
   .mainContainer {
     flex: 1;
@@ -41,7 +43,6 @@ import Footer from '@/components/Footer.vue';
       max-width: min(1450px, calc(100% - 3rem));
       flex: 1;
       width: 100%;
-
     }
   }
 }
