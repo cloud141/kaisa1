@@ -42,7 +42,6 @@ import IoncsAndMore from './IoncsAndMore.vue';
 
     </div>
 
-    <!-- Kode næste her -->
      
   </template>
   
@@ -54,7 +53,7 @@ import IoncsAndMore from './IoncsAndMore.vue';
   align-items: center;
   justify-content: center; // ← centrering vertikalt
   text-align: center;
-  min-height: 55vh; // ← gør sektionen højere
+  min-height: 65vh; // ← gør sektionen højere
   padding: 4rem 2rem;
   gap: 2rem; // luft mellem header og abilities
 }

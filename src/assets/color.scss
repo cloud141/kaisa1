@@ -17,6 +17,11 @@ $hoverColor: #8444DA;
     font-weight: 700;
   }
 
+  @mixin heading3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
   @mixin bodyText {
     font-size: 1rem;
     font-weight: 400;
