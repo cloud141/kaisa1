@@ -175,7 +175,7 @@ const closeModal = () => {
 
 .loreImage {
   top: 1px !important;
-  width: 120% !important;
+  width: 119% !important;
 }
 
 

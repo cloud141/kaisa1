@@ -19,22 +19,22 @@ import IoncsAndMore from './IoncsAndMore.vue';
           <h3>Second Skin</h3>
         </div>
         <div class="ability">
-          <IoncsAndMore name="KaisaQ" />
+          <IoncsAndMore name="kaisaQ" />
           <p>Q</p>
           <h3>Icathian Rain</h3>
         </div>
         <div class="ability">
-          <IoncsAndMore name="KaisaW" />
+          <IoncsAndMore name="kaisaW" />
           <p>W</p>
           <h3>Void Seeker</h3>
         </div>
         <div class="ability">
-          <IoncsAndMore name="KaisaE" />
+          <IoncsAndMore name="kaisaE" />
           <p>E</p>
           <h3>Supercharge</h3>
         </div>
         <div class="ability">
-          <IoncsAndMore name="KaisaR" />
+          <IoncsAndMore name="kaisaR" />
           <p>R</p>
           <h3>Killer Instinct</h3>
         </div>
