@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 
 const heroText = ref(null);
+const kaisaImage = ref(null);
+
 
 onMounted(() => {
   gsap.from(heroText.value.querySelectorAll('li'), {
@@ -12,66 +14,74 @@ onMounted(() => {
     ease: 'power4.out',
     stagger: 0.1
   });
+
+  gsap.from(kaisaImage.value, {
+    duration: 2,
+    opacity: 0,
+    y: 50, // let løft opad
+    ease: 'power4.out',
+    delay: 0.2
+  });
 });
+
 </script>
 
 <template>
     <div class="heroKaisaContainer">
-      <div class="overlayWrapper">
-        <ul class="heroText" ref="heroText">
-          <li><span>Kai</span></li>
-          <li><span>&nbsp;</span></li>
-          <li><span>sa</span></li>
-        </ul>
-        <div class="imgKaisa">
-          <img src="@/img/kaisa1.png" alt="Kaisa" />
+        <div class="overlayWrapper">
+            <ul class="heroText" ref="heroText">
+                <li><span>Kai</span></li>
+                <li><span>&nbsp;</span></li>
+                <li><span>sa</span></li>
+            </ul>
+            <div class="imgKaisa" ref="kaisaImage">
+                <img src="@/img/kaisa1.png" alt="Kaisa" />
+            </div>
         </div>
-      </div>
     </div>
-  </template>
-  
+</template>
+
 
 <style scoped lang="scss">
 .heroKaisaContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .overlayWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heroText {
-  @include heading1;
-  list-style: none;
-  display: flex;
-  color: $yellow;
-  z-index: 1;
-  position: relative;
+    @include heading1;
+    list-style: none;
+    display: flex;
+    color: $yellow;
+    z-index: 1;
+    position: relative;
 
-  span {
-    display: inline-block;
-  }
+    span {
+        display: inline-block;
+    }
 }
 
 .imgKaisa {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 
-  img {
-    width: 800px; // Juster efter behov
-    height: auto;
-  }
+    img {
+        width: 800px; // Juster efter behov
+        height: auto;
+    }
 }
-
 </style>
