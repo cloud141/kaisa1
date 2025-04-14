@@ -19,8 +19,8 @@ import Hero from '@/components/Hero.vue';
           </div>
 
           <div class="icons">
-            <IoncsAndMore name="nofi" />
-            <IoncsAndMore name="settings" />
+            <IoncsAndMore name="nofi" class="nofi" />
+            <IoncsAndMore name="settings" class="settings" />
           </div>
         </div>
         <Hero />
@@ -99,5 +99,16 @@ import Hero from '@/components/Hero.vue';
 .icons {
   display: flex;
   gap: 10px;
+
+  .nofi,
+  .settings {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+
+    }
+  }
 }
 </style>

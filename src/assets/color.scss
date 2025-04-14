@@ -34,4 +34,9 @@ $hoverColor: #8444DA;
     line-height: 150%;
   }
 
+  @mixin bodyText3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
 

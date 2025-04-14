@@ -101,7 +101,7 @@ const closeModal = () => {
 
 .abilitiesList {
   display: flex;
-  gap: 5rem;
+  gap: 5.7rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
@@ -144,7 +144,7 @@ const closeModal = () => {
 
   .overlay {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 2rem;
     left: 2.5rem;
     z-index: 3;
     text-align: left;
@@ -155,7 +155,8 @@ const closeModal = () => {
     }
 
     p {
-      margin: 0;
+      margin-top: -8px;
+      @include bodyText3;
       color: $white;
     }
   }
