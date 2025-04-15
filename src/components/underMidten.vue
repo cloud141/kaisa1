@@ -41,7 +41,7 @@ const modalData = {
           </div>
           <div class="overlay">
             <h3>Fun facts</h3>
-            <p>Kai'sa has family?</p>
+            <p>Did you know?</p>
           </div>
         </div>
       </div>
@@ -77,7 +77,6 @@ const modalData = {
     <transition name="fade">
       <div v-if="modalType" class="modalOverlay" @click.self="modalType = null">
         <div class="modalContent">
-          <button class="closeBtn" @click="modalType = null">✖</button>
           <div class="imageContainer">
             <img :src="modalData[modalType].image" alt="Kai'sa" />
             <div class="gradientOverlay"></div>
@@ -95,7 +94,6 @@ const modalData = {
 </template>
 
 <style scoped lang="scss">
-// Styling for abilities section
 .abilitiesContainer {
   display: flex;
   flex-direction: column;
@@ -107,11 +105,55 @@ const modalData = {
 
 .headerText {
   p {
+    @include bodyText2;
     color: $yellow;
+    margin: 0;
   }
 
   h2 {
+    @include heading2;
     color: $white;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 1315px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
   }
 }
 
@@ -155,6 +197,20 @@ const modalData = {
       object-fit: contain;
       pointer-events: none;
     }
+
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+
+  }
+
+  @media screen and (max-width: 480px) {
+  
+  }
+
   }
 
   .overlay {
@@ -166,10 +222,12 @@ const modalData = {
 
     h3 {
       color: $yellow;
+      @include heading3;
     }
 
     p {
       color: $white;
+      @include bodyText;
     }
   }
 }
@@ -190,7 +248,6 @@ const modalData = {
 }
 
 // Modal styling
-// Modal styling
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -206,15 +263,15 @@ const modalData = {
 }
 
 .modalContent {
-  background: #0a0a0a;
-  border: 2px solid #a55fff;
-  border-radius: 2rem;
+  background: linear-gradient(to top, $darkPurple 0%, $linarColor 10%);
+  border: 3px solid $hoverColor;
+  border-radius: 3.125rem;
   width: 90%;
   max-width: 650px;
   overflow: hidden;
   position: relative;
   animation: fadeInUp 0.4s ease-out;
-  box-shadow: 0 0 30px rgba(165, 95, 255, 0.4);
+  box-shadow: 0 0 30px $hoverColor;
 }
 
 .imageContainer {
@@ -231,42 +288,32 @@ const modalData = {
     bottom: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(to top, #0a0a0a 5%, transparent 100%);
+    background: linear-gradient(to top, $linarColor 10%, transparent 100%);
   }
 }
 
 .textContent {
-  padding: 2rem;
+  padding: 2rem 4rem 4rem;
   text-align: left;
 
   .subtitle {
-    color: #a55fff;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    @include bodyText2;
+    color: $yellow;
+    margin-bottom: -5px;
   }
 
   h2 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 1rem;
+    @include heading2;
+    color: $white;
+    margin-bottom: 1px;
   }
 
   .description {
-    color: #ccc;
+    color: $white;
     line-height: 1.6;
   }
 }
 
-.closeBtn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
 
 // Animation
