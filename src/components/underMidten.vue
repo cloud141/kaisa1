@@ -408,5 +408,24 @@ const modalData = {
       font-size: 0.75rem;
     }
   }
+
+  .textContent {
+
+  .subtitle {
+    @include bodyText;
+    margin-bottom: -5px;
+  }
+
+  h2 {
+    @include heading4;
+    margin-bottom: 1px;
+  }
+
+  .description {
+    color: $white;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
 }
 </style>
