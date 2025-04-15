@@ -50,6 +50,7 @@ import Hero from '@/components/Hero.vue';
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  
 }
 
 .container {
@@ -57,6 +58,7 @@ import Hero from '@/components/Hero.vue';
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  
 }
 
 .center {
@@ -74,6 +76,24 @@ import Hero from '@/components/Hero.vue';
   background: none;
   max-width: 400px;
   width: 100%;
+
+  @media screen and (max-width: 1315px) {
+    padding: 0.5rem 1.5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      padding: 0.5rem 1.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0.5rem 1.5rem;
+      max-width: 300px;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 0.3rem 1.4rem;
+      max-width: 270px;
+    }
 }
 
 .searchInput {
@@ -110,5 +130,24 @@ import Hero from '@/components/Hero.vue';
 
     }
   }
+  @media screen and (max-width: 1315px) {
+    width: 7rem;
+    height: auto;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 6rem;
+      height: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 5rem;
+      height: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 4rem;
+      height: auto;
+    }
 }
 </style>

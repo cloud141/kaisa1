@@ -95,11 +95,11 @@ onMounted(() => {
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 5rem;
+    font-size: 7rem;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
 }
@@ -124,11 +124,11 @@ onMounted(() => {
     }
 
     @media screen and (max-width: 768px) {
-      width: 180px;
+      width: 230px;
     }
 
     @media screen and (max-width: 480px) {
-      width: 130px;
+      width: 170px;
     }
   }
 }
