@@ -20,10 +20,9 @@ import Footer from '@/components/Footer.vue';
 </template>
 
 <style scoped lang="scss">
-body {
-  overflow-x: hidden;
-}
+
 .bodyContainer {
+  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
