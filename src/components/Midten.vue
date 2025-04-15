@@ -1,50 +1,46 @@
 <script setup>
-import underMidten from '@/components/underMidten.vue';
 import IoncsAndMore from './IoncsAndMore.vue';
 </script>
 
 <template>
-    <div class="abilitiesContainer">
-      <!-- Kai'Sa tekst -->
-      <div class="headerText">
-        <p>Kai'Sa's</p>
-        <h2>Abilities</h2>
-      </div>
-  
-      <!-- Abilities ikoner -->
-      <div class="abilitiesList">
-        <div class="ability">
-          <IoncsAndMore name="passiv" />
-          <p>Passiv</p>
-          <h3>Second Skin</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="kaisaQ" />
-          <p>Q</p>
-          <h3>Icathian Rain</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="kaisaW" />
-          <p>W</p>
-          <h3>Void Seeker</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="kaisaE" />
-          <p>E</p>
-          <h3>Supercharge</h3>
-        </div>
-        <div class="ability">
-          <IoncsAndMore name="kaisaR" />
-          <p>R</p>
-          <h3>Killer Instinct</h3>
-        </div>
-      </div>
-
+  <div class="abilitiesContainer">
+    <!-- Kai'Sa tekst -->
+    <div class="headerText">
+      <p>Kai'Sa's</p>
+      <h2>Abilities</h2>
     </div>
 
-     
-  </template>
-  
+    <!-- Abilities ikoner -->
+    <div class="abilitiesList">
+      <div class="ability">
+        <IoncsAndMore name="passiv" />
+        <p>Passiv</p>
+        <h3>Second Skin</h3>
+      </div>
+      <div class="ability">
+        <IoncsAndMore name="kaisaQ" />
+        <p>Q</p>
+        <h3>Icathian Rain</h3>
+      </div>
+      <div class="ability">
+        <IoncsAndMore name="kaisaW" />
+        <p>W</p>
+        <h3>Void Seeker</h3>
+      </div>
+      <div class="ability">
+        <IoncsAndMore name="kaisaE" />
+        <p>E</p>
+        <h3>Supercharge</h3>
+      </div>
+      <div class="ability">
+        <IoncsAndMore name="kaisaR" />
+        <p>R</p>
+        <h3>Killer Instinct</h3>
+      </div>
+    </div>
+  </div>
+</template>
+
 
 <style scoped lang="scss">
 .abilitiesContainer {
@@ -70,6 +66,46 @@ import IoncsAndMore from './IoncsAndMore.vue';
     color: $white;
     margin-bottom: 2rem;
   }
+
+  @media screen and (max-width: 1315px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
 }
 
 .abilitiesList {
@@ -79,13 +115,20 @@ import IoncsAndMore from './IoncsAndMore.vue';
   flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 3rem;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
 }
 
 .ability {
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+
   text-align: center;
   color: $white;
 
@@ -106,10 +149,59 @@ import IoncsAndMore from './IoncsAndMore.vue';
     transition: transform 0.5s ease, border 0.2s ease;
 
     &:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 40px $hoverColor;
-        border-radius: 8px;
-        cursor: pointer;
+      transform: scale(1.1);
+      box-shadow: 0 0 40px $hoverColor;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 1315px) {
+    svg {
+      max-width: 55px;
+    }
+
+  }
+
+  @media screen and (max-width: 1024px) {
+    svg {
+      max-width: 55px;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    svg {
+      max-width: 55px;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    svg {
+      max-width: 55px;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+
+    h3 {
+      font-size: 0.8rem;
     }
   }
 }

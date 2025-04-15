@@ -1,19 +1,31 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const activeModal = ref(null);
+const modalType = ref(null)
 
-const openModal = (name) => {
-  activeModal.value = name;
-};
-
-const closeModal = () => {
-  activeModal.value = null;
-};
+const modalData = {
+  role: {
+    subtitle: "Kai’sa",
+    title: "Role",
+    text: `Kaisa is really strong right now into a lot of things. You would think her lack of mobility would hinder her, but her E really helps reposition after the upgrade. That combined with Galeforce and her ultimate she is quite mobile.`,
+    image: new URL('@/img/modal2.jpg', import.meta.url).href
+  },
+  lore: {
+    subtitle: "Kai’sa",
+    title: "Lore",
+    text: `Once lost in the Void, Kai’Sa survived through sheer willpower and adapted to become one with a living Void-suit. Now, she fights between two worlds – the Void and humanity.`,
+    image: new URL('@/img/modal3.jpg', import.meta.url).href
+  },
+  fun: {
+    subtitle: "Kai’sa",
+    title: "Fun Fact",
+    text: `Did you know Kai’Sa’s symbiote suit is partially alive and bonded to her body? That’s what gives her all those cool powers.`,
+    image: new URL('@/img/modal1.jpg', import.meta.url).href
+  }
+}
 </script>
 
 <template>
-
   <div class="abilitiesContainer">
     <div class="headerText">
       <p>who?</p>
@@ -22,7 +34,7 @@ const closeModal = () => {
 
     <div class="abilitiesList">
       <!-- FUN -->
-      <div class="ability fun" @click="openModal('fun')">
+      <div class="ability fun" @click="modalType = 'fun'">
         <div class="gradient-box">
           <div class="imageWrapper funImage">
             <img src="../img/kat2.png" alt="Fun fact kaisa" />
@@ -35,7 +47,7 @@ const closeModal = () => {
       </div>
 
       <!-- ROLE -->
-      <div class="ability role" @click="openModal('role')">
+      <div class="ability role" @click="modalType = 'role'">
         <div class="gradient-box">
           <div class="imageWrapper roleImage">
             <img src="../img/kat.png" alt="Role kaisa" />
@@ -48,7 +60,7 @@ const closeModal = () => {
       </div>
 
       <!-- LORE -->
-      <div class="ability lore" @click="openModal('lore')">
+      <div class="ability lore" @click="modalType = 'lore'">
         <div class="gradient-box">
           <div class="imageWrapper loreImage">
             <img src="../img/kat3.png" alt="Lore kaisa" />
@@ -60,42 +72,46 @@ const closeModal = () => {
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <transition name="fade">
+      <div v-if="modalType" class="modalOverlay" @click.self="modalType = null">
+        <div class="modalContent">
+          <button class="closeBtn" @click="modalType = null">✖</button>
+          <div class="imageContainer">
+            <img :src="modalData[modalType].image" alt="Kai'sa" />
+            <div class="gradientOverlay"></div>
+          </div>
+          <div class="textContent">
+            <p class="subtitle">{{ modalData[modalType].subtitle }}</p>
+            <h2>{{ modalData[modalType].title }}</h2>
+            <p class="description">{{ modalData[modalType].text }}</p>
+          </div>
+        </div>
+      </div>
+    </transition>
+
   </div>
-
-  <!-- Modal -->
-  <dialog v-if="activeModal" open class="kaisaDialog">
-    <div class="modalContent">
-      <p v-if="activeModal === 'fun'">Yes – Kassadin is her father 😱</p>
-      <p v-else-if="activeModal === 'role'">Kai'Sa is a hybrid marksman and mage.</p>
-      <p v-else-if="activeModal === 'lore'">She grew up in the Void after being trapped as a child.</p>
-
-      <button @click="closeModal">Close</button>
-    </div>
-  </dialog>
 </template>
+
 <style scoped lang="scss">
+// Styling for abilities section
 .abilitiesContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; // ← centrering vertikalt
   text-align: center;
-  min-height: 20vh; // ← gør sektionen højere
   padding: 4rem 2rem;
-  gap: 2rem; // luft mellem header og abilities
+  gap: 2rem;
 }
 
 .headerText {
   p {
-    @include bodyText2;
     color: $yellow;
-    margin: 0;
   }
 
   h2 {
-    @include heading2;
     color: $white;
-    margin-bottom: 2rem;
   }
 }
 
@@ -104,7 +120,6 @@ const closeModal = () => {
   gap: 5.7rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2rem;
 }
 
 .ability {
@@ -123,7 +138,7 @@ const closeModal = () => {
     transition: box-shadow 0.3s ease;
 
     &:hover {
-      box-shadow: 0 0 40px 10px $hoverColor; 
+      box-shadow: 0 0 40px 10px $hoverColor;
     }
   }
 
@@ -150,19 +165,15 @@ const closeModal = () => {
     text-align: left;
 
     h3 {
-      @include heading3;
       color: $yellow;
     }
 
     p {
-      margin-top: -8px;
-      @include bodyText3;
       color: $white;
     }
   }
 }
 
-/* Tilpasning pr. billede */
 .funImage {
   top: 1px !important;
   width: 110% !important;
@@ -178,32 +189,106 @@ const closeModal = () => {
   width: 119% !important;
 }
 
+// Modal styling
+// Modal styling
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.modalContent {
+  background: #0a0a0a;
+  border: 2px solid #a55fff;
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 650px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
+  box-shadow: 0 0 30px rgba(165, 95, 255, 0.4);
+}
 
-.kaisaDialog {
-  padding: 2rem;
-  background: pink;
-  border: none;
-  border-radius: 1rem;
-  max-width: 400px;
-  margin: auto;
-  color: $white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+.imageContainer {
+  position: relative;
 
-  .modalContent {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    button {
-      align-self: flex-end;
-      padding: 0.5rem 1rem;
-      background: $purple;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
+
+  .gradientOverlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, #0a0a0a 5%, transparent 100%);
+  }
+}
+
+.textContent {
+  padding: 2rem;
+  text-align: left;
+
+  .subtitle {
+    color: #a55fff;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: #ccc;
+    line-height: 1.6;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
