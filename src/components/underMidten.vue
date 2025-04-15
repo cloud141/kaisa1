@@ -198,19 +198,6 @@ const modalData = {
       pointer-events: none;
     }
 
-
-  @media screen and (max-width: 1024px) {
-    
-  }
-
-  @media screen and (max-width: 768px) {
-
-  }
-
-  @media screen and (max-width: 480px) {
-  
-  }
-
   }
 
   .overlay {
@@ -337,5 +324,89 @@ const modalData = {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .abilitiesList {
+    gap: 2rem;
+  }
+
+  .funImage img {
+    width: 107.6% !important;
+  }
+
+  .roleImage img {
+    width: 92% !important;
+  }
+
+  .loreImage img {
+    width: 117% !important;
+  }
+
+  .ability {
+    width: 280px;
+    height: 260px;
+
+    .gradient-box {
+      padding-top: 40px;
+      border-radius: 2rem;
+    }
+
+    .overlay {
+      bottom: 1.5rem;
+      left: 1.5rem;
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+      }
+    }
+
+    .imageWrapper {
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .funImage,
+  .roleImage,
+  .loreImage {
+    width: 100% !important;
+    top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .funImage img {
+    width: 82% !important;
+  }
+
+  .roleImage img {
+    width: 70% !important;
+  }
+
+  .loreImage img {
+    width: 89% !important;
+  }
+  .ability {
+    width: 90vw;
+    height: 240px;
+  }
+
+  .overlay {
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+    }
+  }
 }
 </style>
